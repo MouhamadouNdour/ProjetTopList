@@ -86,5 +86,3 @@ const showTop = () => {
 }
 
 TOP.init()
-
-exports.TOP = TOP;

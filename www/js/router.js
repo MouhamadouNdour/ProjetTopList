@@ -6,14 +6,14 @@ ROUTER = (() => {
     buttons.forEach((button, i) => {
       button.click(() => {
         if (button.attr('id') === "homeButton") {
-          document.body.classList.remove("bg-white")
+          document.body.classList.remove("m-bg-theme")
           $("#page1").removeClass("hidden")
           $("#page2").addClass("hidden")
           $("#page3").addClass("hidden")
           $("#page4").addClass("hidden")
           $("#top-items").children().remove()
         } else if (button.attr('id') === "mytopButton") {
-          document.body.classList.add("bg-white")
+          document.body.classList.add("m-bg-theme")
           $("#page2").removeClass("hidden")
           $("#page1").addClass("hidden")
           $("#page3").addClass("hidden")
@@ -22,14 +22,14 @@ ROUTER = (() => {
             showTop()
           }
         } else if (button.attr('id') === "optionsButton") {
-          document.body.classList.add("bg-white")
+          document.body.classList.add("m-bg-theme")
           $("#page3").removeClass("hidden")
           $("#page1").addClass("hidden")
           $("#page2").addClass("hidden")
           $("#page4").addClass("hidden")
           $("#top-items").children().remove()
         } else if (button.attr('id') === "addButton") {
-          document.body.classList.add("bg-white")
+          document.body.classList.add("m-bg-theme")
           $("#page4").removeClass("hidden")
           $("#page1").addClass("hidden")
           $("#page2").addClass("hidden")
