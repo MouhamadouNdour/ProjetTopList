@@ -19,7 +19,7 @@ ROUTER = (() => {
           $("#page3").addClass("hidden")
           $("#page4").addClass("hidden")
           if ($('.top').length === 0) {
-            showTop()
+            showTop(parseInt(localStorage.lastId))
           }
         } else if (button.attr('id') === "optionsButton") {
           document.body.classList.add("m-bg-theme")

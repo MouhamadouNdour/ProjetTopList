@@ -23,11 +23,16 @@
       "cordova-plugin-whitelist": {},
       "cordova-plugin-geolocation": {
         "GPS_REQUIRED": "true"
-      }
+      },
+      "cordova-sqlcipher-adapter": {}
     },
     "platforms": [
       "browser",
       "android"
     ]
+  },
+  "dependencies": {
+    "cordova-sqlcipher-adapter": "0.5.4",
+    "localforage": "^1.10.0"
   }
 }

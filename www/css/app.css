@@ -75,6 +75,13 @@ main {
     font-weight: 700;
     position: fixed !important;
     width: 100%;
+    z-index: 999;
+}
+
+.no-top {
+    color: var(--text-color);
+    font-weight: bold;
+    opacity: 0.5;
 }
 
 .navigation {
@@ -173,11 +180,16 @@ main {
 
 .input-container {
     margin-bottom: 10px;
+    width: 100%;
 }
 
 .input-label {
     font-weight: 700;
     margin-bottom: 7px;
+}
+
+.top-items {
+    padding-bottom: 50px;
 }
 
 .liste-main {
@@ -277,4 +289,28 @@ input:checked+.slider:before {
 
 .slider.round:before {
     border-radius: 50%;
+}
+
+.liste-container-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-button-liste {
+    font-size: 25px;
+    padding: 0 15px;
+    font-weight: bold;
+    background-color: transparent;
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+    color: var(--text-color);
+}
+
+.form-container {
+    padding-bottom: 60px;
+}
+
+.offline-image-container img {
+    width: 100%;
 }

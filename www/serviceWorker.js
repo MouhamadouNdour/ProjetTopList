@@ -11,6 +11,7 @@ const CACHED_FILES = [
   `${ORIGIN_URL}/js/index.js`,
   `${ORIGIN_URL}/img/logo.png`,
   `${ORIGIN_URL}/img/144x144.png`,
+  `${ORIGIN_URL}/assets/offline_image.gif`,
 ]
 /** FUNCTIONS */
 

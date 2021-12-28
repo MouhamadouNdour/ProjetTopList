@@ -104,8 +104,11 @@
                         <textarea class="form-control" id="inputDescription" name="description"></textarea>
                     </div>
                     <div class="liste-container">
-                        <label class="input-label">Liste</label>
-                        <div class="liste-main">
+                        <div class="liste-container-head">
+                            <label class="input-label">Liste</label>
+                            <button class="add-button-liste" onclick="addNewToList()">+</button>
+                        </div>
+                        <div class="liste-main" id="liste-main">
                             <div class="liste-item">
                                 <div class="input-container">
                                     <label class="input-label">Nom</label>
@@ -113,7 +116,7 @@
                                 </div>
                                 <div class="input-container">
                                     <label class="input-label">Image</label>
-                                    <input class="form-control" type="file" id="inputFileElem1" name="FileElem1">
+                                    <input class="form-control" type="file" id="inputFileElem1" name="fileElem1" onchange="onChange(event)" >
                                 </div>
                             </div>
                         </div>
@@ -156,8 +159,8 @@
             </div>
         </div>
         <script src="cordova.js"></script>
-        <script src="js/top.js"></script>
         <script src="js/main.js"></script>
+        <script src="js/top.js"></script>
         <script src="js/router.js"></script>
         <script src="js/index.js"></script>
     </body>
