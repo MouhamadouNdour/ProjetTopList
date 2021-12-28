@@ -48,8 +48,22 @@
         <!-- Font Awesome -->
         <link href="css/all.css" rel="stylesheet">
         <script defer src="js/all.js"></script> <!--load all styles -->
+        <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
         <script>
-            
+            var OneSignal = window.OneSignal || [];
+            var initConfig = {
+                appId: "630acd65-b9e2-43c5-8e49-f45c607304f3",
+                notifyButton: {
+                enable: true,
+                },
+            };
+            OneSignal.push(function () {
+                OneSignal.SERVICE_WORKER_PARAM = { scope: "/push/onesignal/" };
+                OneSignal.SERVICE_WORKER_PATH = "push/onesignal/OneSignalSDKWorker.js";
+                /*OneSignal.SERVICE_WORKER_UPDATER_PATH =
+                "push/onesignal/OneSignalSDKUpdaterWorker.js";*/
+                OneSignal.init(initConfig);
+            });
         </script>
     </head>
     <body>
