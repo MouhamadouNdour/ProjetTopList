@@ -6,10 +6,25 @@
         <link rel="manifest" href="manifest.json" />
         <script>
             window.addEventListener("load", () => {
-                if ("serviceWorker" in navigator) {
-                    navigator.serviceWorker
-                    .register("serviceWorker.js", { scope: "./" })
-                    .then(function (reg) {});
+                if ("cordova" in window) {
+                } else {
+                    if ("serviceWorker" in navigator) {
+                        navigator.serviceWorker
+                        .register("serviceWorker.js", { scope: "./" })
+                        .then(function (reg) {});
+                    }
+                    var OneSignal = window.OneSignal || [];
+                    var initConfig = {
+                        appId: "630acd65-b9e2-43c5-8e49-f45c607304f3",
+                        notifyButton: {
+                            enable: true,
+                        },
+                    };
+                    OneSignal.push(function () {
+                        OneSignal.SERVICE_WORKER_PARAM = { scope: "/push/onesignal/" };
+                        OneSignal.SERVICE_WORKER_PATH = "push/onesignal/OneSignalSDKWorker.js";
+                        OneSignal.init(initConfig);
+                    });
                 }
             })
         </script>
@@ -48,26 +63,15 @@
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
         <!-- Font Awesome -->
         <link href="css/all.css" rel="stylesheet">
-        <script defer src="js/all.js"></script> <!--load all styles -->
         <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-        <script>
-            var OneSignal = window.OneSignal || [];
-            var initConfig = {
-                appId: "630acd65-b9e2-43c5-8e49-f45c607304f3",
-                notifyButton: {
-                    enable: true,
-                },
-            };
-            OneSignal.push(function () {
-                OneSignal.SERVICE_WORKER_PARAM = { scope: "/push/onesignal/" };
-                OneSignal.SERVICE_WORKER_PATH = "push/onesignal/OneSignalSDKWorker.js";
-                /*OneSignal.SERVICE_WORKER_UPDATER_PATH =
-                "push/onesignal/OneSignalSDKUpdaterWorker.js";*/
-                OneSignal.init(initConfig);
-            });
-        </script>
     </head>
     <body>
+        <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <p>Vous êtes hors connexion</p>
+            </div>
+      </div>
         <nav class="navbar navbar-dark justify-content-between m-bg-primary">
             <a class="navbar-brand" href="/">MPWA</a>
         </nav>
@@ -144,7 +148,7 @@
         </main>
         <div class="add-button-container" id="addButton">
             <button class="add-button">
-                <span>+</span>
+                <p>+</p>
             </button>
         </div>
         <div class="navigation">
@@ -173,9 +177,13 @@
                 </span>
             </div>
         </div>
+        <script src="js/native.js"></script>
+        <script src="js/index.js"></script>
+        <script src="cordova.js"></script>
+        <!-- Cordova -->
+        <script defer src="js/all.js"></script> <!--load all styles -->
         <script src="js/main.js"></script>
         <script src="js/top.js"></script>
         <script src="js/router.js"></script>
-        <script src="js/index.js"></script>
     </body>
 </html>

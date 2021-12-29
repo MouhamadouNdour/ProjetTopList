@@ -16,14 +16,23 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+var app = {
+    // Application Constructor
+    initialize: function () {
+        document.addEventListener(
+            "deviceready",
+            this.onDeviceReady.bind(this),
+            false
+        );
+    },
 
-// Wait for the deviceready event before using any of Cordova's device APIs.
-// See https://cordova.apache.org/docs/en/latest/cordova/events/events.html#deviceready
-document.addEventListener('deviceready', onDeviceReady, false);
+    // deviceready Event Handler
+    //
+    // Bind any cordova events here. Common events are:
+    // 'pause', 'resume', etc.
+    onDeviceReady: function () {
+        deviceReady();
+    },
+};
 
-function onDeviceReady() {
-    // Cordova is now initialized. Have fun!
-
-    console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
-    document.getElementById('deviceready').classList.add('ready');
-}
+app.initialize();

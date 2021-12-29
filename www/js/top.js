@@ -57,16 +57,18 @@ const showTop = (id) => {
         titreTop = document.createElement("h2")
         descriptionTop = document.createElement("p")
         selectedTop.items && selectedTop.items.forEach((topItem, j) => {
-            imagesContainer[j] = document.createElement("div")
-            imagesContainer[j].setAttribute("class", "mytop-item-image")
             titre[j] = document.createElement("h2")
             titre[j].setAttribute("class", "mytop-item-title")
             titre[j].innerHTML = (j + 1) + ". " + topItem.label
-            images[j] = document.createElement("img")
-            images[j].setAttribute("src", topItem.img)
-            imagesContainer[j].appendChild(images[j])
+            if (topItem.img) {
+                imagesContainer[j] = document.createElement("div")
+                imagesContainer[j].setAttribute("class", "mytop-item-image")
+                images[j] = document.createElement("img")
+                images[j].setAttribute("src", topItem.img)
+                imagesContainer[j].appendChild(images[j])
+            }
             topItems.appendChild(titre[j])
-            topItems.appendChild(imagesContainer[j])
+            topItem.img && topItems.appendChild(imagesContainer[j])
         })
         titreTop.innerHTML = selectedTop.title
         descriptionTop.innerHTML = selectedTop.description
