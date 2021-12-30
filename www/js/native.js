@@ -47,7 +47,9 @@ const deleteTop = (id) => {
         if (id === 1) {
             alert("Suppression de top List impossible !")
         } else {
-            onConfirm(1, id)
+            if (window.confirm("Êtes-vous sûr de vouloir supprimer ce Top List ?")) {
+                onConfirm(1, id)
+            }
         }
     }
 }
