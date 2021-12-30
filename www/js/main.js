@@ -43,7 +43,7 @@ if (currentTheme) {
 const addTop = (e) => {
     var inputTitre = document.getElementById("inputTitre").value;
     var inputDescription = document.getElementById("inputDescription").value;
-    var currentId = parseInt(localStorage.currentId) || 1
+    var currentId = parseInt(localStorage.currentId) || 2
     var oldDatabase = JSON.parse(localStorage.getItem('database')) || [];
 
     if (inputTitre !== "" && inputDescription !== "") {

@@ -1,6 +1,25 @@
 TOP = (() => {
 
     const init = () => {
+        if (!localStorage.database) {
+            let top = [{
+                id: 1,
+                title: "Meilleurs footballeurs",
+                description: "Mes meilleurs joueurs de football de cette saison",
+                items: [{
+                    label: "Karim Benzema",
+                    img: "..//img/foot1.jpg",
+                }, {
+                    label: "Antoine Griezman",
+                    img: "../img/foot2.jpg",
+                }, {
+                    label: "Eriksen",
+                    img: "../img/foot3.jpg",
+                },]
+            }]
+            localStorage.setItem("database", JSON.stringify(top))
+        }
+
         // Réinitialise la page home
         var elements = document.getElementsByClassName("top-item");
         while (elements.length > 0) {

@@ -19,7 +19,6 @@ const toogleModalOffline = (show) => {
 };
 
 const onConfirm = (buttonIndex, id) => {
-    alert("You selected button number " + buttonIndex);
     if (buttonIndex === 1) {
         var database = JSON.parse(localStorage.database)
         var newDatabase = database.filter(top => top.id !== id)
@@ -34,16 +33,27 @@ const onConfirm = (buttonIndex, id) => {
     }
 }
 
+function alertDismissed() {
+}
+
 const deleteTop = (id) => {
     if ("cordova" in window) {
-        navigator.notification.confirm("Êtes-vous sûr de vouloir supprimer ce Top List ?", (choice) => onConfirm(choice, id), "Suppression", ['Oui', 'Annuler'])
+        if (id === 1) {
+            navigator.notification.alert("Suppression de top List impossible !", alertDismissed, "Attention")
+        } else {
+            navigator.notification.confirm("Êtes-vous sûr de vouloir supprimer ce Top List ?", (choice) => onConfirm(choice, id), "Suppression", ['Oui', 'Annuler'])
+        }
     } else {
-        onConfirm(1, id)
+        if (id === 1) {
+            alert("Suppression de top List impossible !")
+        } else {
+            onConfirm(1, id)
+        }
     }
 }
 
 const deviceReady = () => {
-    window.screen.orientation.lock('portrait');
+    window.screen.orientation.lock('portrait-primary');
     console.log('Orientation is ' + screen.orientation.type);
     document.addEventListener("offline", onOffline, false);
     document.addEventListener("online", onOnline, false);

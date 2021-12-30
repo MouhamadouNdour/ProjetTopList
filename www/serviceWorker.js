@@ -9,7 +9,7 @@ const CACHED_FILES = [
   `${ORIGIN_URL}/css/index.css`,
   `${ORIGIN_URL}/css/app.css`,
   `${ORIGIN_URL}/js/index.js`,
-  `${ORIGIN_URL}/img/logo.png`,
+  `${ORIGIN_URL}/img/50x50.png`,
   `${ORIGIN_URL}/img/144x144.png`,
   `${ORIGIN_URL}/assets/offline_image.gif`,
 ]

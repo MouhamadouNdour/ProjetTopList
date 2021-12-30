@@ -9,6 +9,7 @@
     </author>
     
     <content src="index.html" />
+    <preference name="loadUrlTimeoutValue" value="60000" />
 
     <plugin name="cordova-plugin-whitelist" spec="1" />
 
@@ -19,22 +20,23 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <allow-intent href="href:*" />
 
-    <preference name="StatusBarBackgroundColor" value="#7E72FF" />
+    <preference name="SplashScreenBackgroundColor" value="#FFFFFF" />
 
     <platform name="android">
+        <preference name="AndroidPersistentFileLocation" value="Compatibility" />
         <allow-intent href="market:*" />
-        <splash src="www/img/logo.png" density="land-hdpi" />
-        <splash src="www/img/logo.png" density="land-ldpi" />
-        <splash src="www/img/logo.png" density="land-mdpi" />
-        <splash src="www/img/logo.png" density="land-xhdpi" />
-        <splash src="www/img/logo.png" density="land-xxhdpi" />
-        <splash src="www/img/logo.png" density="land-xxxhdpi" />
+        <splash src="www/img/splash-hdpi.png" density="hdpi" />
+        <splash src="www/img/splash-ldpi.png" density="ldpi" />
+        <splash src="www/img/splash-mdpi.png" density="mdpi" />
+        <splash src="www/img/splash-xhdpi.png" density="xhdpi" />
+        <splash src="www/img/splash-xxhdpi.png" density="xxhdpi" />
+        <splash src="www/img/splash-xxxhdpi.png" density="xxxhdpi" />
     </platform>
-
-    <platform name="windows">
-        <splash src="www/img/logos/logo.png" target="SplashScreen"/>
+    
+    <platform name="browser">
+        <preference name="SplashScreen" value="www/img/144x144.png" /> 
+        <preference name="SplashScreenBackgroundColor" value="#FFFFFF" />
     </platform>
 
     <platform name="ios">
