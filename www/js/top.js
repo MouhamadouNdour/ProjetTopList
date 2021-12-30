@@ -8,12 +8,12 @@ TOP = (() => {
                 description: "Mes meilleurs joueurs de football de cette saison",
                 items: [{
                     label: "Karim Benzema",
-                    img: "..//img/foot1.jpg",
+                    img: "../img/foot1.jpg",
                 }, {
-                    label: "Antoine Griezman",
+                    label: "Robert Lewandowski",
                     img: "../img/foot2.jpg",
                 }, {
-                    label: "Eriksen",
+                    label: "Lionel Messi",
                     img: "../img/foot3.jpg",
                 },]
             }]
