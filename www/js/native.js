@@ -39,7 +39,7 @@ function alertDismissed() {
 const deleteTop = (id) => {
     if ("cordova" in window) {
         if (id === 1) {
-            navigator.notification.alert("Suppression de top List impossible !", alertDismissed, "Attention")
+            navigator.notification.alert("Suppression de ce Top List impossible !", alertDismissed, "Attention")
         } else {
             navigator.notification.confirm("Êtes-vous sûr de vouloir supprimer ce Top List ?", (choice) => onConfirm(choice, id), "Suppression", ['Oui', 'Annuler'])
         }
