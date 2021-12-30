@@ -1,3 +1,11 @@
+const returnHome = () => {
+    TOP.init();
+    $("#page1").removeClass("hidden");
+    $("#page2").addClass("hidden");
+    $("#page3").addClass("hidden");
+    $("#page4").addClass("hidden");
+}
+
 const switchTheme = (e) => {
     if (e.target.checked) {
         document.documentElement.setAttribute("data-theme", "dark");
@@ -66,12 +74,8 @@ const addTop = (e) => {
         localStorage.setItem("database", JSON.stringify(oldDatabase));
 
         document.body.classList.remove("m-bg-theme");
-        TOP.init();
-        $("#page1").removeClass("hidden");
-        $("#page2").addClass("hidden");
-        $("#page3").addClass("hidden");
-        $("#page4").addClass("hidden");
-        localStorage.setItem("currentId", "" + currentId + 1)
+        returnHome()
+        localStorage.setItem("currentId", "" + (currentId + 1))
     } else {
         console.log("Veuillez remplir tous les champs.");
     }

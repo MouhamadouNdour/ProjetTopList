@@ -15,6 +15,7 @@
   "devDependencies": {
     "cordova-android": "^8.1.0",
     "cordova-browser": "^6.0.0",
+    "cordova-plugin-dialogs": "^2.0.2",
     "cordova-plugin-statusbar": "github:apache/cordova-plugin-statusbar",
     "cordova-plugin-whitelist": "1",
     "es6-promise-plugin": "^4.2.2"
@@ -26,7 +27,8 @@
       "cordova-plugin-battery-status": {},
       "cordova-plugin-inappbrowser": {},
       "cordova-plugin-screen-orientation": {},
-      "cordova-plugin-splashscreen": {}
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-dialogs": {}
     },
     "platforms": [
       "browser",

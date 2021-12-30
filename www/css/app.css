@@ -170,14 +170,23 @@ main {
 
 .top-item {
     margin-bottom: 10px;
-    color: #637192;
+    color: var(--text-color);
     font-size: 16px;
     line-height: 24px;
     font-weight: 600;
-    padding: 20px;
+    padding: 15px;
     box-shadow: rgb(0 0 0 / 10%) 0px 1px 3px 0px, rgb(0 0 0 / 6%) 0px 1px 2px 0px;
     border-radius: 10px;
     border: var(--border);
+    display: flex;
+    justify-content: space-between;
+}
+
+.top-item-supp {
+    font-size: 24px;
+    color: red;
+    font-weight: bold;
+    padding: 0px 10px;
 }
 
 .form-container {

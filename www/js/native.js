@@ -18,6 +18,30 @@ const toogleModalOffline = (show) => {
     modal.className = show ? "show" : "";
 };
 
+const onConfirm = (buttonIndex, id) => {
+    alert("You selected button number " + buttonIndex);
+    if (buttonIndex === 1) {
+        var database = JSON.parse(localStorage.database)
+        var newDatabase = database.filter(top => top.id !== id)
+        localStorage.setItem("database", JSON.stringify(newDatabase))
+        if (localStorage.lastId && parseInt(localStorage.lastId) === id) {
+            localStorage.removeItem("lastId")
+        }
+        if (localStorage.database && (JSON.parse(localStorage.database)).length === 0) {
+            localStorage.removeItem("database")
+        }
+        returnHome()
+    }
+}
+
+const deleteTop = (id) => {
+    if ("cordova" in window) {
+        navigator.notification.confirm("Êtes-vous sûr de vouloir supprimer ce Top List ?", (choice) => onConfirm(choice, id), "Suppression", ['Oui', 'Annuler'])
+    } else {
+        onConfirm(1, id)
+    }
+}
+
 const deviceReady = () => {
     window.screen.orientation.lock('portrait');
     console.log('Orientation is ' + screen.orientation.type);

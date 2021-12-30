@@ -1,24 +1,38 @@
 TOP = (() => {
 
     const init = () => {
+        // Réinitialise la page home
+        var elements = document.getElementsByClassName("top-item");
+        while (elements.length > 0) {
+            elements[0].parentNode.removeChild(elements[0]);
+        }
+        var elements2 = document.getElementsByClassName("no-top");
+        while (elements2.length > 0) {
+            elements2[0].parentNode.removeChild(elements2[0]);
+        }
+
         if (localStorage.database) {
-            // Réinitialise la page home
-            var elements = document.getElementsByClassName("top-item");
-            while (elements.length > 0) {
-                elements[0].parentNode.removeChild(elements[0]);
-            }
-            var elements2 = document.getElementsByClassName("no-top");
-            while (elements2.length > 0) {
-                elements2[0].parentNode.removeChild(elements2[0]);
-            }
             // Affiche les éléments stockés dans le localStorage
             let database = JSON.parse(localStorage.database)
             var elements = []
+            var titre = []
+            var supp = []
             database.forEach((top, i) => {
                 elements[i] = document.createElement("div")
                 elements[i].setAttribute("class", "top-item")
-                elements[i].innerHTML = top.title + ' >'
-                elements[i].addEventListener("click", () => {
+                titre[i] = document.createElement("div")
+                titre[i].setAttribute("class", "top-item-title")
+                titre[i].innerHTML = top.title + ' >'
+                supp[i] = document.createElement("div")
+                supp[i].setAttribute("class", "top-item-supp")
+                supp[i].setAttribute("id", "top-item-supp")
+                supp[i].innerHTML = "x"
+                supp[i].addEventListener("click", function () {
+                    deleteTop(top.id)
+                })
+                elements[i].appendChild(titre[i])
+                elements[i].appendChild(supp[i])
+                titre[i].addEventListener("click", () => {
                     showTop(top.id)
                     $("#page2").removeClass("hidden")
                     $("#page1").addClass("hidden")
